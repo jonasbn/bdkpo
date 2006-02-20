@@ -1,6 +1,6 @@
 package Business::DK::PO;
 
-# $Id: PO.pm,v 1.1 2006-02-20 12:36:01 jonasbn Exp $
+# $Id: PO.pm,v 1.2 2006-02-20 15:13:30 jonasbn Exp $
 
 use strict;
 use integer;
@@ -136,38 +136,51 @@ __END__
 
 =head1 NAME
 
-Business::DK::PO - a danish postal order code generator/validator module
+Business::DK::PO - a danish postal order code generator/validator
 
 =head1 SYNOPSIS
 
 	use Business::DK::PO qw(validate);
 
-	my $rv = validate("0000");
+	my $rv;
+	eval {
+		$rv = validate(1234563891234562);
+	};
+	
+	if ($@) {
+		die "Code is not of the expected format - $@";
+	}
+	
+	if ($rv) {
+		print "Code is valid";
+	} else {
+		print "Code is not valid";
+	}
 
 
 	use Business::DK::PO qw(calculate);
 
-	my $rv = calculate($ARGV[0]);
+	my $code = calculate(1234);
 
 
 =head1 DESCRIPTION
 
-The postalorders are used by the danish postal service B<PostDanmark>.
+The postal orders and postal order codes are used by the danish postal service 
+B<PostDanmark>.
 
 =head1 FUNCTIONS
 
 =head2 validate
 
-The function takes a single argument, a 15 digit postalorder code. 
+The function takes a single argument, a 16 digit postal order code. 
 
-The function returns 1 (true) in case of a valid postalorder argument and 0
-(false) in case of an invalid postalorder code argument.
-
-In case of a malformed or missing parameter the function returns undef.
+The function returns 1 (true) in case of a valid postal order code argument and 
+0 (false) in case of an invalid postal order code argument.
 
 The validation function goes through the following steps.
 
-Validation of the parameter using the functions:
+Validation of the argument is done using the functions (all described below in 
+detail):
 
 =over
 
@@ -186,6 +199,40 @@ The sum returned is checked using a modulus caluculation and based on its
 validity either 1 or 0 is returned.
 
 =head2 calculate
+
+The function takes a single argument, an integer indicating a unique reference 
+number you can use to identify an order. Suggestions are invoice number, 
+order number or similar.
+
+The number provided must be between 1 and 15 digits long, meaning a number
+between 1 and 999 trillions.
+
+The function returns a postal order code consisting of the number given as 
+argument appended with a control cifer to make the code valid (See: b<validate>
+
+The calculation function goes through the following steps.
+
+Validation of the argument is done using the functions (all described below in 
+detail):
+
+=over
+
+=item _argument
+
+=item _content
+
+=item _length
+
+=back
+
+If the argument is a valid argument the sum is calculated by B<_calculate_sum>
+based on the argument and the controlcifers array.
+
+Based on the sum the argument the controlcifer is calculated and appended so 
+that the argument becomes a valid postal order code.
+
+The calculated and valid code is then returned, left-padded with zeroes to make 
+it 16 digits long (SEE: validate).
 
 =head1 PRIVATE FUNCTIONS
 
@@ -248,6 +295,10 @@ Business::DK::PO exports two functions:
 =item calculate
 
 =back
+
+=head1 TESTS
+
+Coverage of the test suite is at 100%
 
 =head1 BUGS
 
