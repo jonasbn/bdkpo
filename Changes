@@ -1,3 +1,7 @@
 Changes file for Business-DK-PO
 
-$Id: Changes,v 1.1 2006-02-20 12:36:01 jonasbn Exp $
+$Id: Changes,v 1.2 2006-02-20 15:52:20 jonasbn Exp $
+
+HEAD
+
+- Added use of MODULUS_OPERAND, apparently this had been overlooked

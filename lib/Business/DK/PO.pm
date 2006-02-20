@@ -1,6 +1,6 @@
 package Business::DK::PO;
 
-# $Id: PO.pm,v 1.2 2006-02-20 15:13:30 jonasbn Exp $
+# $Id: PO.pm,v 1.3 2006-02-20 15:52:20 jonasbn Exp $
 
 use strict;
 use integer;
@@ -61,7 +61,7 @@ sub validate {
 	
 	my $sum = _calculate_sum($controlnumber);
 	
-	if ($sum%10) {
+	if ($sum%MODULUS_OPERAND) {
 		return 0;
 	} else {
 		return 1;
