@@ -1,6 +1,6 @@
 package Business::DK::PO;
 
-# $Id: PO.pm,v 1.3 2006-02-20 15:52:20 jonasbn Exp $
+# $Id: PO.pm,v 1.4 2006-02-20 21:43:11 jonasbn Exp $
 
 use strict;
 use integer;
@@ -13,7 +13,7 @@ my @controlcifers = qw(2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1);
 
 $VERSION   = '0.01';
 @ISA       = qw(Exporter);
-@EXPORT_OK = qw(calculate validate);
+@EXPORT_OK = qw(calculate validate _argument _content _length _calculate_sum);
 
 use constant CONTROLCODE_LENGTH => 16;
 use constant INVOICE_MINLENGTH  => 1;
@@ -286,13 +286,21 @@ controlcifer array.
 
 =head1 EXPORTS
 
-Business::DK::PO exports two functions:
+Business::DK::PO exports on request:
 
 =over
 
 =item validate
 
 =item calculate
+
+=item _argument 
+
+=item _content 
+
+=item _length 
+
+=item _calculate_sum
 
 =back
 

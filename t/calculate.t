@@ -1,4 +1,4 @@
-# $Id: calculate.t,v 1.1 2006-02-20 12:36:01 jonasbn Exp $
+# $Id: calculate.t,v 1.2 2006-02-20 21:43:11 jonasbn Exp $
 
 use strict;
 use Test::More tests => 32;
@@ -25,9 +25,7 @@ ok(validate($paymentid));
 
 #Tests 8 ... 29
 for (1 .. 10, 999999999999999) {
-	print STDERR "Generating for $_\n" if $Business::DK::PO::VERBOSE;
 	ok(my $paymentid = calculate($_));
-	print STDERR "\$paymentid = $paymentid\n" if $Business::DK::PO::VERBOSE;
 	ok(validate($paymentid));
 }
 

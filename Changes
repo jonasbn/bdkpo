@@ -1,7 +1,20 @@
 Changes file for Business-DK-PO
 
-$Id: Changes,v 1.2 2006-02-20 15:52:20 jonasbn Exp $
+$Id: Changes,v 1.3 2006-02-20 21:43:11 jonasbn Exp $
 
-HEAD
+HEAD / Release 0.02 candidate
 
-- Added use of MODULUS_OPERAND, apparently this had been overlooked
+- Added related module to SEE ALSO section in POD
+
+- Added private message to EXPORT_OK and updated POD
+
+- Added use of MODULUS_OPERAND in one place, apparently this had been overlooked
+
+- Removed some verbose message from unit-tests
+
+- Restructured tests some positive tests are first in the file
+
+
+Release 0.01 - Released Mon Feb 20 2006
+
+- Initial version
