@@ -1,8 +1,10 @@
 Changes file for Business-DK-PO
 
-$Id: Changes,v 1.3 2006-02-20 21:43:11 jonasbn Exp $
+$Id: Changes,v 1.4 2006-02-20 22:03:10 jonasbn Exp $
 
 HEAD / Release 0.02 candidate
+
+- Added version information to POD
 
 - Added related module to SEE ALSO section in POD
 

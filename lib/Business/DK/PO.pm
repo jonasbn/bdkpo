@@ -1,6 +1,6 @@
 package Business::DK::PO;
 
-# $Id: PO.pm,v 1.5 2006-02-20 21:47:10 jonasbn Exp $
+# $Id: PO.pm,v 1.6 2006-02-20 22:03:10 jonasbn Exp $
 
 use strict;
 use integer;
@@ -137,6 +137,10 @@ __END__
 =head1 NAME
 
 Business::DK::PO - a danish postal order code generator/validator
+
+=head1 VERSION
+
+This documentation describes version 0.02
 
 =head1 SYNOPSIS
 
