@@ -1,8 +1,8 @@
 Changes file for Business-DK-PO
 
-$Id: Changes,v 1.4 2006-02-20 22:03:10 jonasbn Exp $
+$Id: Changes,v 1.5 2006-02-21 19:41:02 jonasbn Exp $
 
-HEAD / Release 0.02 candidate
+Release 0.02 - Released Tue Feb 21 2006
 
 - Added version information to POD
 
