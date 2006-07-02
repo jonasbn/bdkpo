@@ -1,3 +1,6 @@
 TODO file for Business-DK-PO
 
-$Id: TODO,v 1.1 2006-02-20 12:36:01 jonasbn Exp $
+$Id: TODO,v 1.2 2006-07-02 13:22:57 jonasbn Exp $
+
+- Add capability of using subs as constraints in Data::FormValidator
+
