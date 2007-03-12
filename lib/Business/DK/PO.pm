@@ -1,8 +1,9 @@
 package Business::DK::PO;
 
-# $Id: PO.pm,v 1.6 2006-02-20 22:03:10 jonasbn Exp $
+# $Id: PO.pm,v 1.7 2007-03-12 08:19:53 jonasbn Exp $
 
 use strict;
+use warnings;
 use integer;
 use Carp qw(croak);
 use vars qw($VERSION @ISA @EXPORT_OK);
@@ -21,114 +22,115 @@ use constant INVOICE_MAXLENGTH  => 15;
 use constant MODULUS_OPERAND    => 10;
 
 sub calculate {
-	my ($number, $maxlength, $minlength) = @_;
+    my ( $number, $maxlength, $minlength ) = @_;
 
-	if (! $minlength) {
-		$minlength = INVOICE_MINLENGTH;
-	}
+    if ( !$minlength ) {
+        $minlength = INVOICE_MINLENGTH;
+    }
 
-	if (! $maxlength) {
-		$maxlength = INVOICE_MAXLENGTH;
-	}
-	
-	if (! $number) {
-		_argument($minlength, $maxlength);
-	}
-	_content($number);
-	_length($number, $minlength, $maxlength);
-	
-	my $format = '%0'.$maxlength.'s';
-	$number = sprintf("$format", $number);
+    if ( !$maxlength ) {
+        $maxlength = INVOICE_MAXLENGTH;
+    }
 
-	my $sum = _calculate_sum($number);
-	
-	my $mod = $sum%MODULUS_OPERAND;
-	my $checkciffer = 0;
-	
-	$checkciffer = (MODULUS_OPERAND - $mod);
-		
-	return ($number . $checkciffer); 
+    if ( !$number ) {
+        _argument( $minlength, $maxlength );
+    }
+    _content($number);
+    _length( $number, $minlength, $maxlength );
+
+    my $format = '%0' . $maxlength . 's';
+    $number = sprintf "$format", $number;
+
+    my $sum = _calculate_sum($number);
+
+    my $mod         = $sum % MODULUS_OPERAND;
+    my $checkciffer = 0;
+
+    $checkciffer = ( MODULUS_OPERAND - $mod );
+
+    return ( $number . $checkciffer );
 }
 
 sub validate {
-	my $controlnumber = shift;
+    my $controlnumber = shift;
 
-	if (! $controlnumber) {
-		_argument(CONTROLCODE_LENGTH);
-	}
-	_content($controlnumber);
-	_length($controlnumber, CONTROLCODE_LENGTH);
-	
-	my $sum = _calculate_sum($controlnumber);
-	
-	if ($sum%MODULUS_OPERAND) {
-		return 0;
-	} else {
-		return 1;
-	}	
+    if ( !$controlnumber ) {
+        _argument(CONTROLCODE_LENGTH);
+    }
+    _content($controlnumber);
+    _length( $controlnumber, CONTROLCODE_LENGTH );
+
+    my $sum = _calculate_sum($controlnumber);
+
+    if ( $sum % MODULUS_OPERAND ) {
+        return 0;
+    } else {
+        return 1;
+    }
 }
 
 sub _argument {
-	my ($length, $maxlen) = @_;
-	
-	if ($maxlen) {
-		croak "function takes an argument of minimum: $length and maximum $maxlen digits";
-		
-	} elsif ($length) {
-		croak "function takes an argument of $length digits";
-	} else {
-		croak "function takes an argument";	
-	}
+    my ( $length, $maxlen ) = @_;
+
+    if ($maxlen) {
+        croak
+            "function takes an argument of minimum: $length and maximum $maxlen digits";
+
+    } elsif ($length) {
+        croak "function takes an argument of $length digits";
+    } else {
+        croak "function takes an argument";
+    }
 }
 
 sub _content {
-	my $number = shift;
-	
-	if ($number !~ /^\d*$/) {
-		croak "argument: $number must only contain digits";
-	}
-	return 1;
+    my $number = shift;
+
+    if ( $number !~ /^\d*$/ ) {
+        croak "argument: $number must only contain digits";
+    }
+    return 1;
 }
 
 sub _length {
-	my ($number, $length, $maxlen) = @_;
+    my ( $number, $length, $maxlen ) = @_;
 
-	if ($maxlen) {
-		if (length($number) < $length) {
-			croak "argument: $number has to be $length digits long";
-			
-		} elsif (length($number) > $maxlen) {
-			croak "argument: $number must be not more than $maxlen digits long";	
-		}
-	
-	} else {
-		if (length($number) != $length) {
-			croak "argument: $number has to be $length digits long";		
-		}
-	}
-	return 1;
+    if ($maxlen) {
+        if ( length($number) < $length ) {
+            croak "argument: $number has to be $length digits long";
+
+        } elsif ( length($number) > $maxlen ) {
+            croak
+                "argument: $number must be not more than $maxlen digits long";
+        }
+
+    } else {
+        if ( length($number) != $length ) {
+            croak "argument: $number has to be $length digits long";
+        }
+    }
+    return 1;
 }
 
 sub _calculate_sum {
-	my $number = shift;
+    my $number = shift;
 
-	my $sum = 0;
-	my @numbers = split(//, $number);
-	
-	for (my $i = 0; $i< scalar(@numbers); $i++) {
-		my $tmpsum2 = 0;
-		my $tmpsum = $numbers[$i] * $controlcifers[$i];
-		
-		if ($tmpsum > 9) {
-			map({$tmpsum2 += $_} split(//, $tmpsum));
-			$tmpsum = $tmpsum2;
-		}
-		$sum += $tmpsum;
-	}
+    my $sum = 0;
+    my @numbers = split( //, $number );
 
-	return $sum;
+    for ( my $i = 0; $i < scalar(@numbers); $i++ ) {
+        my $tmpsum2 = 0;
+        my $tmpsum  = $numbers[$i] * $controlcifers[$i];
+
+        if ( $tmpsum > 9 ) {
+            map( { $tmpsum2 += $_ } split( //, $tmpsum ) );
+            $tmpsum = $tmpsum2;
+        }
+        $sum += $tmpsum;
+    }
+
+    return $sum;
 }
-
 
 1;
 
