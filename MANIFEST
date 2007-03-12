@@ -1,5 +1,3 @@
-bin/calculate_po.pl
-bin/validate_po.pl
 Build.PL
 Changes
 INSTALL
@@ -13,5 +11,10 @@ t/_argument.t
 t/_calculate_sum.t
 t/_length.t
 t/calculate.t
+t/critic.t
+t/kwalitee.t
+t/perlcriticrc
+t/pod-coverage.t
+t/pod.t
 t/validate.t
 TODO

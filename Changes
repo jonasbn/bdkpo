@@ -1,8 +1,8 @@
 Changes file for Business-DK-PO
 
-$Id: Changes,v 1.7 2007-03-12 08:19:53 jonasbn Exp $
+$Id: Changes,v 1.8 2007-03-12 19:24:16 jonasbn Exp $
 
-HEAD
+Release 0.03 - Released Mon Mar 12 2007
 
 - Set severity of Perl::Critic test to 5, gentle
 

@@ -1,6 +1,6 @@
 package Business::DK::PO;
 
-# $Id: PO.pm,v 1.7 2007-03-12 08:19:53 jonasbn Exp $
+# $Id: PO.pm,v 1.8 2007-03-12 19:24:16 jonasbn Exp $
 
 use strict;
 use warnings;
@@ -12,7 +12,7 @@ require Exporter;
 
 my @controlcifers = qw(2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1);
 
-$VERSION   = '0.02';
+$VERSION   = '0.03';
 @ISA       = qw(Exporter);
 @EXPORT_OK = qw(calculate validate _argument _content _length _calculate_sum);
 
