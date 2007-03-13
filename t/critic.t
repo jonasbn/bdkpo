@@ -2,26 +2,26 @@
 # http://search.cpan.org/~thaljef/Test-Perl-Critic/lib/Test/Perl/Critic.pm
 
 use strict;
-  use warnings;
-  use File::Spec;
-  use Test::More;
-  use English qw(-no_match_vars);
+use warnings;
+use File::Spec;
+use Test::More;
+use English qw(-no_match_vars);
 
-  if ( not $ENV{TEST_AUTHOR} ) {
-      my $msg = 'Author test.  Set $ENV{TEST_AUTHOR} to a true value to run.';
-      plan( skip_all => $msg );
-  }
+if ( not $ENV{TEST_AUTHOR} ) {
+    my $msg = 'Author test.  Set $ENV{TEST_AUTHOR} to a true value to run.';
+    plan( skip_all => $msg );
+}
 
-  eval { use Test::Perl::Critic (-severity => 5); };
+eval { require Test::Perl::Critic; };
 
-  if ( $EVAL_ERROR ) {
-     my $msg = 'Test::Perl::Critic required to criticise code';
-     plan( skip_all => $msg );
-  }
+if ( $EVAL_ERROR ) {
+   my $msg = 'Test::Perl::Critic required to criticise code';
+   plan( skip_all => $msg );
+}
 
-  my $rcfile = File::Spec->catfile( 't', 'perlcriticrc' );
-  Test::Perl::Critic->import( -profile => $rcfile );
-  all_critic_ok();
+my $rcfile = File::Spec->catfile( 't', 'perlcriticrc' );
+Test::Perl::Critic->import( -profile => $rcfile );
+all_critic_ok();
 
 __END__
 

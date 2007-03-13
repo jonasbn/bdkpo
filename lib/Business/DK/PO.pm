@@ -1,6 +1,6 @@
 package Business::DK::PO;
 
-# $Id: PO.pm,v 1.8 2007-03-12 19:24:16 jonasbn Exp $
+# $Id: PO.pm,v 1.9 2007-03-13 19:12:21 jonasbn Exp $
 
 use strict;
 use warnings;
@@ -12,7 +12,7 @@ require Exporter;
 
 my @controlcifers = qw(2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1);
 
-$VERSION   = '0.03';
+$VERSION   = '0.04';
 @ISA       = qw(Exporter);
 @EXPORT_OK = qw(calculate validate _argument _content _length _calculate_sum);
 
@@ -142,7 +142,7 @@ Business::DK::PO - a danish postal order code generator/validator
 
 =head1 VERSION
 
-This documentation describes version 0.02
+This documentation describes version 0.04
 
 =head1 SYNOPSIS
 
@@ -314,6 +314,18 @@ Business::DK::PO exports on request:
 
 Coverage of the test suite is at 100%
 
+    ---------------------------- ------ ------ ------ ------ ------ ------ ------
+    File                           stmt   bran   cond    sub    pod   time  total
+    ---------------------------- ------ ------ ------ ------ ------ ------ ------
+    blib/lib/Business/DK/PO.pm    100.0  100.0    n/a  100.0  100.0  100.0  100.0
+    Total                         100.0  100.0    n/a  100.0  100.0  100.0  100.0
+    ---------------------------- ------ ------ ------ ------ ------ ------ ------
+
+
+Test::Kwalitee passes
+
+Test::Perl::Critic passes at severity 5, gentle
+
 =head1 BUGS
 
 Please report issues via CPAN RT:
@@ -342,7 +354,7 @@ Jonas B. Nielsen, (jonasbn) - C<< <jonasbn@cpan.org> >>
 
 =head1 COPYRIGHT
 
-Business-DK-PO is (C) by Jonas B. Nielsen, (jonasbn) 2006
+Business-DK-PO is (C) by Jonas B. Nielsen, (jonasbn) 2006-2007
 
 Business-DK-PO is released under the artistic license
 

@@ -1,6 +1,14 @@
 Changes file for Business-DK-PO
 
-$Id: Changes,v 1.8 2007-03-12 19:24:16 jonasbn Exp $
+$Id: Changes,v 1.9 2007-03-13 19:12:21 jonasbn Exp $
+
+Release 0.04 - Released Tue Mar 13 2007
+
+- Added some POD, nothing significant
+
+- Fixed problem in t/critic.t, I had implemented a mix of my own and the
+  recommended Perl::Critic test, so it gave unforseen test failures
+
 
 Release 0.03 - Released Mon Mar 12 2007
 
