@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Komodo Project File - DO NOT EDIT -->
-<project kpf_version="3" id="78202533-d7b6-2349-a619-6e7ec35000fa" name="Business-DK-PO.kpf">
+<project id="78202533-d7b6-2349-a619-6e7ec35000fa" kpf_version="4" name="Business-DK-PO.kpf">
 <preference-set idref="78202533-d7b6-2349-a619-6e7ec35000fa">
   <boolean id="import_live">1</boolean>
 </preference-set>
