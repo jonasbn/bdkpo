@@ -14,5 +14,17 @@ my $build = Module::Build->new(
 		'Carp'            => 0, #core
 		'Test::Exception' => 0,
 	},
+    meta_merge => {
+        resources => {
+            homepage => 'http://logiclab.jira.com/wiki/display/BDKPO/Home',
+            bugtracker =>
+                'http://rt.cpan.org/NoAuth/Bugs.html?Dist=Business-DK-PO',
+            repository => 'http://logicLAB.jira.com/svn/BDKPO',
+            ProjectChangelog =>
+                'http://logiclab.jira.com/browse/BDKPO#selectedTab=com.atlassian.jira.plugin.system.project%3Achangelog-panel',
+            ProjectSite => 'http://logicLAB.jira.com/browse/BDKPO',
+            ProjectWiki => 'http://logiclab.jira.com/wiki/display/BDKPO/Home',
+        }
+    },
 );
 $build->create_build_script();
