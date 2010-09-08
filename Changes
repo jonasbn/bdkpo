@@ -6,6 +6,16 @@ Project Change Log:
 
 http://logiclab.jira.com/browse/BDKPO#selectedTab=com.atlassian.jira.plugin.system.project%3Achangelog-panel
 
+Release 0.05 - Released Wed Sep  8 2010, update not required
+
+- Added wrapper on validate method, so we now also export a validatePO, which
+  is less intrusive [BDKPO-2]
+
+- Added prerequisites test [BDKPO-1]
+
+- Beautified code with Perl::Tidy and did basic Perl::Critic violation cleanup
+
+
 Release 0.04 - Released Tue Mar 13 2007
 
 - Added some POD, nothing significant
