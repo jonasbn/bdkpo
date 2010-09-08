@@ -1,18 +1,46 @@
 
 # $Id: perlcriticrc,v 1.2 2007-03-12 08:19:53 jonasbn Exp $
 
-severity = 5
+verbose = 8
+severity = 1
 
 #------------------------------------------------------------------------------
 
-[-CodeLayout::RequireTidyCode]
+[CodeLayout::RequireTidyCode]
 
 [Documentation::RequirePodSections]
 lib_sections    = NAME|DESCRIPTION|SYNOPSIS|AUTHOR|COPYRIGHT
 script_sections = NAME|DESCRIPTION|SYNOPSIS|AUTHOR|COPYRIGHT
 
 [Miscellanea::RequireRcsKeywords]
-keywords = URL Date Author Revision
+keywords = Id
 
 [CodeLayout::ProhibitHardTabs]
 allow_leading_tabs = 0
+
+[-ValuesAndExpressions::ProhibitConstantPragma]
+
+[-Bangs::ProhibitFlagComments] 
+
+[-NamingConventions::Capitalization]
+
+[InputOutput::RequireCheckedSyscalls]
+exclude_functions = print
+
+#TODO address these policies
+
+[-RegularExpressions::RequireExtendedFormatting]
+
+[-Bangs::ProhibitNumberedNames]
+
+[-RegularExpressions::RequireDotMatchAnything]
+
+[-ControlStructures::ProhibitCStyleForLoops]
+
+[-ControlStructures::ProhibitPostfixControls]
+
+[-RegularExpressions::RequireLineBoundaryMatching]
+
+[-CodeLayout::ProhibitParensWithBuiltins]
+
+[-ValuesAndExpressions::ProhibitInterpolationOfLiterals]

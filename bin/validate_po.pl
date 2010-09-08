@@ -3,6 +3,7 @@
 # $Id: validate_po.pl,v 1.1 2006-02-20 12:36:01 jonasbn Exp $
 
 use strict;
+use warnings;
 use Pod::Usage;
 use vars qw($VERSION);
 use Getopt::Long;
@@ -13,19 +14,19 @@ $VERSION = '0.01';
 my $opt_man;
 my $opt_help;
 
-GetOptions("help", "man") || pod2usage(2);
+GetOptions( "help", "man" ) || pod2usage(2);
 pod2usage(1) if ($opt_help);
-pod2usage(-verbose => 2) if ($opt_man);
+pod2usage( -verbose => 2 ) if ($opt_man);
 
 $Business::DK::PO::VERBOSE = 1;
 
-my $rv = validate($ARGV[0]);
+my $rv = validate( $ARGV[0] );
 
 if ($rv) {
-	$rv = 0;
+    $rv = 0;
 } else {
-	$rv = 1;
-};
+    $rv = 1;
+}
 
 __END__
 

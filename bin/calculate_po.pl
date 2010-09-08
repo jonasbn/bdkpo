@@ -1,6 +1,9 @@
 #!/usr/bin/perl -w
 
+# $Id$
+
 use strict;
+use warnings;
 use vars qw($VERSION);
 use Pod::Usage;
 use Getopt::Long;
@@ -11,20 +14,20 @@ $VERSION = '0.01';
 my $opt_man;
 my $opt_help;
 
-GetOptions("help", "man") || pod2usage(2);
+GetOptions( "help", "man" ) || pod2usage(2);
 pod2usage(1) if ($opt_help);
-pod2usage(-verbose => 2) if ($opt_man);
+pod2usage( -verbose => 2 ) if ($opt_man);
 
 $Business::DK::PO::VERBOSE = 1;
 
-my $rv = calculate($ARGV[0]);
+my $rv = calculate( $ARGV[0] );
 
 if ($rv) {
-	print "$rv\n";
-	$rv = 0;
+    print "$rv\n";
+    $rv = 0;
 } else {
-	$rv = 1;
-};
+    $rv = 1;
+}
 
 exit($rv);
 

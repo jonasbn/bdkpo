@@ -6,20 +6,21 @@ use strict;
 use warnings;
 use integer;
 use Carp qw(croak);
-use vars qw($VERSION @ISA @EXPORT_OK);
+use vars qw($VERSION @EXPORT_OK);
 
-require Exporter;
+use base qw(Exporter);
 
 my @controlcifers = qw(2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1);
 
-$VERSION   = '0.05';
-@ISA       = qw(Exporter);
-@EXPORT_OK = qw(calculate validate validatePO _argument _content _length _calculate_sum);
+$VERSION = '0.05';
+@EXPORT_OK
+    = qw(calculate validate validatePO _argument _content _length _calculate_sum);
 
 use constant CONTROLCODE_LENGTH => 16;
 use constant INVOICE_MINLENGTH  => 1;
 use constant INVOICE_MAXLENGTH  => 15;
 use constant MODULUS_OPERAND    => 10;
+use constant SUM_THRESHOLD      => 9;
 
 sub calculate {
     my ( $number, $maxlength, $minlength ) = @_;
@@ -51,6 +52,7 @@ sub calculate {
     return ( $number . $checkciffer );
 }
 
+## no critic (RequireArgUnpacking)
 sub validatePO {
     return validate(@_);
 }
@@ -126,7 +128,10 @@ sub _calculate_sum {
         my $tmpsum2 = 0;
         my $tmpsum  = $numbers[$i] * $controlcifers[$i];
 
-        if ( $tmpsum > 9 ) {
+        if ( $tmpsum > SUM_THRESHOLD ) {
+
+            #TODO: address this construct
+            ## no critic (BuiltinFunctions::ProhibitVoidMap)
             map( { $tmpsum2 += $_ } split( //, $tmpsum ) );
             $tmpsum = $tmpsum2;
         }
@@ -150,27 +155,27 @@ This documentation describes version 0.05
 
 =head1 SYNOPSIS
 
-	use Business::DK::PO qw(validate);
+    use Business::DK::PO qw(validate);
 
-	my $rv;
-	eval {
-		$rv = validate(1234563891234562);
-	};
-	
-	if ($@) {
-		die "Code is not of the expected format - $@";
-	}
-	
-	if ($rv) {
-		print "Code is valid";
-	} else {
-		print "Code is not valid";
-	}
+    my $rv;
+    eval {
+        $rv = validate(1234563891234562);
+    };
+    
+    if ($@) {
+        die "Code is not of the expected format - $@";
+    }
+    
+    if ($rv) {
+        print "Code is valid";
+    } else {
+        print "Code is not valid";
+    }
 
 
-	use Business::DK::PO qw(calculate);
+    use Business::DK::PO qw(calculate);
 
-	my $code = calculate(1234);
+    my $code = calculate(1234);
 
 
     #Using with Params::Validate
