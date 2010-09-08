@@ -43,7 +43,9 @@ Business-DK-PO-[\d\.\_]+.tar.gz
 \.releaserc
 drafts
 ^docs
-^Business-DK-PO.kpf$
+\.kpf
+\.komodoproject
 ^protos
 ^bin
 ^scripts
+^MYMETA.yml$
