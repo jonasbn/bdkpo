@@ -4,11 +4,11 @@
 
 use Module::Build;
 my $build = Module::Build->new(
-	dist_author       => 'Jonas B. Nielsen, (jonasbn) <jonasbn@cpan.org>',
-	module_name       => 'Business::DK::PO',
-	dist_version_from => 'lib/Business/DK/PO.pm',
-	license           => 'artistic',
-	create_makefile_pl => 'passthrough',
+	dist_author        => 'Jonas B. Nielsen, (jonasbn) <jonasbn@cpan.org>',
+	module_name        => 'Business::DK::PO',
+	dist_abstract      => 'danish postal order code generator/validator',
+	license            => 'artistic',
+	create_makefile_pl => 'traditional',
 	requires => {
 	    'Exporter'        => 0, #core
 		'Carp'            => 0, #core
