@@ -142,7 +142,7 @@ __END__
 
 =head1 NAME
 
-Business::DK::PO - a danish postal order code generator/validator
+Business::DK::PO - danish postal order code generator/validator
 
 =head1 VERSION
 
