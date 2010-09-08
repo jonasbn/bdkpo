@@ -12,9 +12,9 @@ require Exporter;
 
 my @controlcifers = qw(2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1);
 
-$VERSION   = '0.04';
+$VERSION   = '0.05';
 @ISA       = qw(Exporter);
-@EXPORT_OK = qw(calculate validate _argument _content _length _calculate_sum);
+@EXPORT_OK = qw(calculate validate validatePO _argument _content _length _calculate_sum);
 
 use constant CONTROLCODE_LENGTH => 16;
 use constant INVOICE_MINLENGTH  => 1;
@@ -49,6 +49,10 @@ sub calculate {
     $checkciffer = ( MODULUS_OPERAND - $mod );
 
     return ( $number . $checkciffer );
+}
+
+sub validatePO {
+    return validate(@_);
 }
 
 sub validate {
@@ -142,7 +146,7 @@ Business::DK::PO - a danish postal order code generator/validator
 
 =head1 VERSION
 
-This documentation describes version 0.04
+This documentation describes version 0.05
 
 =head1 SYNOPSIS
 
@@ -169,6 +173,21 @@ This documentation describes version 0.04
 	my $code = calculate(1234);
 
 
+    #Using with Params::Validate
+    
+    use Params::Validate qw(:all);
+    use Business::DK::PO qw(validatePO);
+        
+    sub check_cpr {
+        validate( @_,
+        { po =>
+            { callbacks =>
+                { 'validate_po' => sub { validatePO($_[0]); } } } } );
+        
+        print $_[1]." is a valid PO\n";
+    
+    }
+
 =head1 DESCRIPTION
 
 The postal orders and postal order codes are used by the danish postal service 
@@ -190,11 +209,11 @@ detail):
 
 =over
 
-=item _argument
+=item * _argument
 
-=item _content
+=item * _content
 
-=item _length
+=item * _length
 
 =back
 
@@ -203,6 +222,13 @@ based on the argument and the controlcifers array.
 
 The sum returned is checked using a modulus caluculation and based on its
 validity either 1 or 0 is returned.
+
+=head2 validatePO
+
+A wrapper for L</validate> with a name more suitable for importing, it is less
+common and therefor less intrusive.
+
+See L</validate> for details.
 
 =head2 calculate
 
@@ -223,11 +249,11 @@ detail):
 
 =over
 
-=item _argument
+=item * _argument
 
-=item _content
+=item * _content
 
-=item _length
+=item * _length
 
 =back
 
@@ -254,9 +280,9 @@ The B<_argument> function takes two arguments:
 
 =over
 
-=item minimum length required of number (mandatory)
+=item * minimum length required of number (mandatory)
 
-=item maximum length required of number (optional)
+=item * maximum length required of number (optional)
 
 =back
 
@@ -277,11 +303,11 @@ The B<_length> function takes the following arguments:
 
 =over
 
-=item number (mandatory), the number to be validated
+=item * number (mandatory), the number to be validated
 
-=item minimum length required of number (mandatory)
+=item * minimum length required of number (mandatory)
 
-=item maximum length required of number (optional)
+=item * maximum length required of number (optional)
 
 =back
 
@@ -297,6 +323,8 @@ Business::DK::PO exports on request:
 =over
 
 =item validate
+
+=item validatePO
 
 =item calculate
 
@@ -320,7 +348,6 @@ Coverage of the test suite is at 100%
     blib/lib/Business/DK/PO.pm    100.0  100.0    n/a  100.0  100.0  100.0  100.0
     Total                         100.0  100.0    n/a  100.0  100.0  100.0  100.0
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
-
 
 Test::Kwalitee passes
 
@@ -354,7 +381,7 @@ Jonas B. Nielsen, (jonasbn) - C<< <jonasbn@cpan.org> >>
 
 =head1 COPYRIGHT
 
-Business-DK-PO is (C) by Jonas B. Nielsen, (jonasbn) 2006-2007
+Business-DK-PO is (C) by Jonas B. Nielsen, (jonasbn) 2006-2010
 
 Business-DK-PO is released under the artistic license
 
