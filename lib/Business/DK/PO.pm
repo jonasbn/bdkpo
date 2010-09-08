@@ -356,7 +356,8 @@ Coverage of the test suite is at 100%
 
 Test::Kwalitee passes
 
-Test::Perl::Critic passes at severity 5, gentle
+Test::Perl::Critic passes at severity 1, brutal, with many policies disabled
+though, see F</perlcriticrc>.
 
 =head1 BUGS
 
