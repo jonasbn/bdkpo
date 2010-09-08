@@ -327,19 +327,19 @@ Business::DK::PO exports on request:
 
 =over
 
-=item validate
+=item * L</validate>
 
-=item validatePO
+=item * L</validatePO>
 
-=item calculate
+=item * L</calculate>
 
-=item _argument 
+=item * L</_argument> 
 
-=item _content 
+=item * L</_content>
 
-=item _length 
+=item * L</_length> 
 
-=item _calculate_sum
+=item * L</_calculate_sum>
 
 =back
 
