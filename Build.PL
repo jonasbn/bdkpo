@@ -13,6 +13,8 @@ my $build = Module::Build->new(
 	    'Exporter'        => 0, #core
 		'Carp'            => 0, #core
 		'Test::Exception' => 0,
+		'Test::Kwalitee' => 0,
+		'Test::Perl::Critic' => 0,
 	},
     meta_merge => {
         resources => {
