@@ -1,26 +1,34 @@
 # Courtesy of Jeffrey Ryan Thalhammer
 # http://search.cpan.org/~thaljef/Test-Perl-Critic/lib/Test/Perl/Critic.pm
 
+# The severity parameter interpretation was added by jonasbn
+# See: http://logiclab.jira.com/wiki/display/OPEN/Test-Perl-Critic
+
+# $Id$
+
+# $HeadURL$
+
 use strict;
 use warnings;
 use File::Spec;
 use Test::More;
 use English qw(-no_match_vars);
+use Test::Perl::Critic;
+
+our $VERSION = '1.00';
 
 if ( not $ENV{TEST_CRITIC} ) {
     my $msg = 'Author test.  Set $ENV{TEST_CRITIC} to a true value to run.';
     plan( skip_all => $msg );
 }
 
-eval { require Test::Perl::Critic; };
-
-if ( $EVAL_ERROR ) {
-   my $msg = 'Test::Perl::Critic required to criticise code';
-   plan( skip_all => $msg );
-}
-
 my $rcfile = File::Spec->catfile( 't', 'perlcriticrc' );
-Test::Perl::Critic->import( -profile => $rcfile );
+
+Test::Perl::Critic->import(
+    -profile => $rcfile,
+    -severity => ($ENV{TEST_CRITIC} and $ENV{TEST_CRITIC} >= 0 and $ENV{TEST_CRITIC} <= 5) ? $ENV{TEST_CRITIC} : 5
+);
+
 all_critic_ok();
 
 __END__
