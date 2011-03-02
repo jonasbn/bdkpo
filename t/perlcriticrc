@@ -44,3 +44,5 @@ exclude_functions = print
 [-CodeLayout::ProhibitParensWithBuiltins]
 
 [-ValuesAndExpressions::ProhibitInterpolationOfLiterals]
+
+[-Documentation::RequirePodLinksIncludeText]
