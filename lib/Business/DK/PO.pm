@@ -12,7 +12,7 @@ use base qw(Exporter);
 
 my @controlcifers = qw(2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1);
 
-$VERSION = '0.05';
+$VERSION = '0.06';
 @EXPORT_OK
     = qw(calculate validate validatePO _argument _content _length _calculate_sum);
 
