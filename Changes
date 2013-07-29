@@ -1,4 +1,4 @@
-Changes file for Business-DK-PO
+Changes file for Business::DK::PO
 
 $Id: Changes,v 1.9 2007-03-13 19:12:21 jonasbn Exp $
 
@@ -6,7 +6,24 @@ Project Change Log:
 
 http://logiclab.jira.com/browse/BDKPO#selectedTab=com.atlassian.jira.plugin.system.project%3Achangelog-panel
 
-Release 0.05 - Released Wed Sep  8 2010, update not required
+0.06 2013-07-29
+
+- Fixed up Changes file as part of my Questhub quest adhering to the standard
+  described in: CPAN::Changes::Spec [BDKPO-7]
+
+  Quest: http://questhub.io/realm/perl/quest/51f0fd8e18ba7dcf4b000040
+  Spec: https://metacpan.org/module/CPAN::Changes::Spec
+  
+  https://logiclab.jira.com/browse/BDKPO-7
+  
+- Added contemporay boiler plate of Perl::Critic test [BDKPO-5]  
+  
+  https://logiclab.jira.com/browse/BDKPO-5
+  
+
+0.05 2010-09-08
+
+- Update not required
 
 - Added wrapper on validate method, so we now also export a validatePO, which
   is less intrusive [BDKPO-2]
@@ -16,7 +33,7 @@ Release 0.05 - Released Wed Sep  8 2010, update not required
 - Beautified code with Perl::Tidy and did basic Perl::Critic violation cleanup
 
 
-Release 0.04 - Released Tue Mar 13 2007
+0.04 2007-03-13
 
 - Added some POD, nothing significant
 
@@ -24,7 +41,7 @@ Release 0.04 - Released Tue Mar 13 2007
   recommended Perl::Critic test, so it gave unforseen test failures
 
 
-Release 0.03 - Released Mon Mar 12 2007
+0.03 2007-03-12
 
 - Set severity of Perl::Critic test to 5, gentle
 
@@ -42,7 +59,7 @@ Release 0.03 - Released Mon Mar 12 2007
   This seem to be the defacto way of doing things.
 
 
-Release 0.02 - Released Tue Feb 21 2006
+0.02 2006-02-21
 
 - Added version information to POD
 
@@ -57,6 +74,6 @@ Release 0.02 - Released Tue Feb 21 2006
 - Restructured tests some positive tests are first in the file
 
 
-Release 0.01 - Released Mon Feb 20 2006
+0.01 2006-02-20
 
 - Initial version
