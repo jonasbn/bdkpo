@@ -49,3 +49,4 @@ drafts
 ^bin
 ^scripts
 ^MYMETA.yml$
+^MYMETA\.json$
