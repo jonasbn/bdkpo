@@ -1,4 +1,4 @@
-Changes file for Business-DK-PO
+Changes file for Business::DK::PO
 
 $Id: Changes,v 1.9 2007-03-13 19:12:21 jonasbn Exp $
 
@@ -6,7 +6,7 @@ Project Change Log:
 
 http://logiclab.jira.com/browse/BDKPO#selectedTab=com.atlassian.jira.plugin.system.project%3Achangelog-panel
 
-HEAD
+0.06 2013-07-29
 
 - Fixed up Changes file as part of my Questhub quest adhering to the standard
   described in: CPAN::Changes::Spec [BDKPO-7]
@@ -15,6 +15,10 @@ HEAD
   Spec: https://metacpan.org/module/CPAN::Changes::Spec
   
   https://logiclab.jira.com/browse/BDKPO-7
+  
+- Added contemporay boiler plate of Perl::Critic test [BDKPO-5]  
+  
+  https://logiclab.jira.com/browse/BDKPO-5
   
 
 0.05 2010-09-08
