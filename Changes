@@ -8,7 +8,7 @@ http://logiclab.jira.com/browse/BDKPO#selectedTab=com.atlassian.jira.plugin.syst
 
 HEAD
 
-- Added changes.t automatic assertion of the integrity of the Changes file, see also BDKPO-8
+- Added changes.t automatic assertion of the integrity of the Changes file, see also BDKPO-7
 
   https://logiclab.jira.com/browse/BDKPO-8
 
