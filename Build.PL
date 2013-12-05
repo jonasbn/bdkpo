@@ -8,6 +8,7 @@ my $build = Module::Build->new(
 	module_name        => 'Business::DK::PO',
 	dist_abstract      => 'danish postal order code generator/validator',
 	license            => 'artistic',
+    create_readme        => 1,
 	create_makefile_pl => 'traditional',
 	requires => {
 	    'Exporter'        => 0, #core
