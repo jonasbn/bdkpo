@@ -51,3 +51,6 @@ drafts
 ^scripts
 ^MYMETA.yml$
 ^MYMETA\.json$
+
+# Github - Travis integration
+\.travis\.yml
