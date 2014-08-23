@@ -14,6 +14,7 @@ my $build = Module::Build->new(
         'Test::Exception'    => 0,
         'Test::Kwalitee'     => 0,
         'Test::Perl::Critic' => 0,
+        'Perl'               => '5.006', #5.6
     },
     meta_merge => {
         resources => {

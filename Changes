@@ -6,6 +6,9 @@ http://logiclab.jira.com/browse/BDKPO#selectedTab=com.atlassian.jira.plugin.syst
 
 HEAD
 
+- Added Perl version requirement 5.6 as pointed out by
+  Perl::Critic
+
 - Added changes.t automatic assertion of the integrity of the
   Changes file, see also BDKPO-7
 

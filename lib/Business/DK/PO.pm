@@ -7,6 +7,7 @@ use warnings;
 use integer;
 use Carp qw(croak);
 use vars qw($VERSION @EXPORT_OK);
+use 5.006;
 
 use base qw(Exporter);
 
