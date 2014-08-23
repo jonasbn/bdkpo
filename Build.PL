@@ -4,19 +4,19 @@
 
 use Module::Build;
 my $build = Module::Build->new(
-	dist_author        => 'Jonas B. Nielsen, (jonasbn) <jonasbn@cpan.org>',
-	module_name        => 'Business::DK::PO',
-	dist_abstract      => 'danish postal order code generator/validator',
-	license            => 'artistic',
-    create_readme        => 1,
-	create_makefile_pl => 'traditional',
-	requires => {
-	    'Exporter'        => 0, #core
-		'Carp'            => 0, #core
-		'Test::Exception' => 0,
-		'Test::Kwalitee' => 0,
-		'Test::Perl::Critic' => 0,
-	},
+    dist_author        => 'Jonas B. Nielsen, (jonasbn) <jonasbn@cpan.org>',
+    module_name        => 'Business::DK::PO',
+    dist_abstract      => 'danish postal order code generator/validator',
+    license            => 'artistic',
+    create_readme      => 1,
+    create_makefile_pl => 'traditional',
+    requires           => {
+        'Exporter'           => 0,    #core
+        'Carp'               => 0,    #core
+        'Test::Exception'    => 0,
+        'Test::Kwalitee'     => 0,
+        'Test::Perl::Critic' => 0,
+    },
     meta_merge => {
         resources => {
             homepage => 'http://logiclab.jira.com/wiki/display/BDKPO/Home',
