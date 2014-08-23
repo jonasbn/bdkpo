@@ -4,7 +4,7 @@ Project Change Log:
 
 http://logiclab.jira.com/browse/BDKPO#selectedTab=com.atlassian.jira.plugin.system.project%3Achangelog-panel
 
-HEAD
+0.07 2014-08-23 maintenance release, update not required
 
 - Added Perl version requirement 5.6 as pointed out by
   Perl::Critic
