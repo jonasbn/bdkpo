@@ -1,7 +1,5 @@
 package Business::DK::PO;
 
-# $Id: PO.pm,v 1.9 2007-03-13 19:12:21 jonasbn Exp $
-
 use strict;
 use warnings;
 use integer;
