@@ -52,5 +52,6 @@ drafts
 ^MYMETA.yml$
 ^MYMETA\.json$
 
-# Github - Travis integration
+# Github files
 \.travis\.yml
+README.mkdn
