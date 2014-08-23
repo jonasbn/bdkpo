@@ -1,7 +1,5 @@
 # Build.PL for Business-DK-PO
 
-# $Id: Build.PL,v 1.1 2006-02-20 12:36:01 jonasbn Exp $
-
 use Module::Build;
 my $build = Module::Build->new(
     dist_author        => 'Jonas B. Nielsen, (jonasbn) <jonasbn@cpan.org>',
