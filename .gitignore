@@ -21,3 +21,5 @@ META.json
 MYMETA.json
 Makefile.PL
 README
+*.sublime-project
+*.sublime-workspace

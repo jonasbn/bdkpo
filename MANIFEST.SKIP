@@ -55,3 +55,7 @@ drafts
 # Github files
 \.travis\.yml
 README.mkdn
+
+# SublimeText 2 project files
+\.sublime-project
+\.sublime-workspace
