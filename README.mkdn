@@ -1,5 +1,6 @@
 [![CPAN version](https://badge.fury.io/pl/Business-DK-PO.svg)](http://badge.fury.io/pl/Business-DK-PO)
 [![Build Status](https://travis-ci.org/jonasbn/bdkpo.svg?branch=master)](https://travis-ci.org/jonasbn/bdkpo)
+[![Coverage Status](https://coveralls.io/repos/jonasbn/bdkpo/badge.png)](https://coveralls.io/r/jonasbn/bdkpo)
 
 # NAME
 
