@@ -144,9 +144,11 @@ sub _calculate_sum {
 
 __END__
 
+=pod
+
 =head1 NAME
 
-Business::DK::PO - danish postal order code generator/validator
+Business::DK::PO - Danish postal order number validator
 
 =head1 VERSION
 
