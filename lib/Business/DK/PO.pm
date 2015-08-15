@@ -1,18 +1,17 @@
 package Business::DK::PO;
 
-# $Id: PO.pm,v 1.9 2007-03-13 19:12:21 jonasbn Exp $
-
 use strict;
 use warnings;
 use integer;
 use Carp qw(croak);
 use vars qw($VERSION @EXPORT_OK);
+use 5.006;
 
 use base qw(Exporter);
 
 my @controlcifers = qw(2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1);
 
-$VERSION = '0.06';
+$VERSION = '0.07';
 @EXPORT_OK
     = qw(calculate validate validatePO _argument _content _length _calculate_sum);
 
@@ -145,13 +144,15 @@ sub _calculate_sum {
 
 __END__
 
+=pod
+
 =head1 NAME
 
-Business::DK::PO - danish postal order code generator/validator
+Business::DK::PO - Danish postal order number validator
 
 =head1 VERSION
 
-This documentation describes version 0.05
+This documentation describes version 0.07
 
 =head1 SYNOPSIS
 
@@ -161,11 +162,11 @@ This documentation describes version 0.05
     eval {
         $rv = validate(1234563891234562);
     };
-    
+
     if ($@) {
         die "Code is not of the expected format - $@";
     }
-    
+
     if ($rv) {
         print "Code is valid";
     } else {
@@ -179,37 +180,37 @@ This documentation describes version 0.05
 
 
     #Using with Params::Validate
-    
+
     use Params::Validate qw(:all);
     use Business::DK::PO qw(validatePO);
-        
+
     sub check_cpr {
         validate( @_,
         { po =>
             { callbacks =>
                 { 'validate_po' => sub { validatePO($_[0]); } } } } );
-        
+
         print $_[1]." is a valid PO\n";
-    
+
     }
 
 =head1 DESCRIPTION
 
-The postal orders and postal order codes are used by the danish postal service 
+The postal orders and postal order codes are used by the danish postal service
 B<PostDanmark>.
 
 =head1 FUNCTIONS
 
 =head2 validate
 
-The function takes a single argument, a 16 digit postal order code. 
+The function takes a single argument, a 16 digit postal order code.
 
-The function returns 1 (true) in case of a valid postal order code argument and 
+The function returns 1 (true) in case of a valid postal order code argument and
 0 (false) in case of an invalid postal order code argument.
 
 The validation function goes through the following steps.
 
-Validation of the argument is done using the functions (all described below in 
+Validation of the argument is done using the functions (all described below in
 detail):
 
 =over
@@ -237,19 +238,19 @@ See L</validate> for details.
 
 =head2 calculate
 
-The function takes a single argument, an integer indicating a unique reference 
-number you can use to identify an order. Suggestions are invoice number, 
+The function takes a single argument, an integer indicating a unique reference
+number you can use to identify an order. Suggestions are invoice number,
 order number or similar.
 
 The number provided must be between 1 and 15 digits long, meaning a number
 between 1 and 999 trillions.
 
-The function returns a postal order code consisting of the number given as 
+The function returns a postal order code consisting of the number given as
 argument appended with a control cifer to make the code valid (See: b<validate>
 
 The calculation function goes through the following steps.
 
-Validation of the argument is done using the functions (all described below in 
+Validation of the argument is done using the functions (all described below in
 detail):
 
 =over
@@ -265,10 +266,10 @@ detail):
 If the argument is a valid argument the sum is calculated by B<_calculate_sum>
 based on the argument and the controlcifers array.
 
-Based on the sum the argument the controlcifer is calculated and appended so 
+Based on the sum the argument the controlcifer is calculated and appended so
 that the argument becomes a valid postal order code.
 
-The calculated and valid code is then returned, left-padded with zeroes to make 
+The calculated and valid code is then returned, left-padded with zeroes to make
 it 16 digits long (SEE: validate).
 
 =head1 PRIVATE FUNCTIONS
@@ -291,7 +292,7 @@ The B<_argument> function takes two arguments:
 
 =back
 
-The arguments are used in the error message issued with B<die>, since this 
+The arguments are used in the error message issued with B<die>, since this
 method always dies.
 
 =head2 _content
@@ -318,7 +319,7 @@ The B<_length> function takes the following arguments:
 
 =head2 _calculate_sum
 
-This function takes an integer and calculates the sum bases on the the 
+This function takes an integer and calculates the sum bases on the the
 controlcifer array.
 
 =head1 EXPORTS
@@ -333,11 +334,11 @@ Business::DK::PO exports on request:
 
 =item * L</calculate>
 
-=item * L</_argument> 
+=item * L</_argument>
 
 =item * L</_content>
 
-=item * L</_length> 
+=item * L</_length>
 
 =item * L</_calculate_sum>
 
@@ -387,7 +388,7 @@ Jonas B. Nielsen, (jonasbn) - C<< <jonasbn@cpan.org> >>
 
 =head1 COPYRIGHT
 
-Business-DK-PO is (C) by Jonas B. Nielsen, (jonasbn) 2006-2010
+Business-DK-PO is (C) by Jonas B. Nielsen, (jonasbn) 2006-2014
 
 Business-DK-PO is released under the artistic license
 
