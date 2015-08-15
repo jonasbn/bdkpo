@@ -1,6 +1,4 @@
 
-# $Id: perlcriticrc,v 1.2 2007-03-12 08:19:53 jonasbn Exp $
-
 verbose = 8
 severity = 1
 
