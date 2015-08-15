@@ -51,7 +51,7 @@ This documentation describes version 0.07
 The postal orders and postal order codes are used by the danish postal service
 **PostDanmark**.
 
-# FUNCTIONS
+# SUBROUTINES/METHODS
 
 ## validate
 
@@ -112,7 +112,7 @@ that the argument becomes a valid postal order code.
 The calculated and valid code is then returned, left-padded with zeroes to make
 it 16 digits long (SEE: validate).
 
-# PRIVATE FUNCTIONS
+# PRIVATE SUBROUTINES/METHODS
 
 ## \_argument
 
