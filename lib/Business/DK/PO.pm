@@ -12,8 +12,8 @@ use base qw(Exporter);
 my @controlcifers = qw(2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1);
 
 $VERSION = '0.07';
-@EXPORT_OK
-    = qw(calculate validate validatePO _argument _content _length _calculate_sum);
+@EXPORT_OK =
+  qw(calculate validate validatePO _argument _content _length _calculate_sum);
 
 use constant CONTROLCODE_LENGTH => 16;
 use constant INVOICE_MINLENGTH  => 1;
@@ -69,7 +69,8 @@ sub validate {
 
     if ( $sum % MODULUS_OPERAND ) {
         return 0;
-    } else {
+    }
+    else {
         return 1;
     }
 }
@@ -79,11 +80,13 @@ sub _argument {
 
     if ($maxlen) {
         croak
-            "function takes an argument of minimum: $length and maximum $maxlen digits";
+"function takes an argument of minimum: $length and maximum $maxlen digits";
 
-    } elsif ($length) {
+    }
+    elsif ($length) {
         croak "function takes an argument of $length digits";
-    } else {
+    }
+    else {
         croak "function takes an argument";
     }
 }
@@ -104,12 +107,13 @@ sub _length {
         if ( length($number) < $length ) {
             croak "argument: $number has to be $length digits long";
 
-        } elsif ( length($number) > $maxlen ) {
-            croak
-                "argument: $number must be not more than $maxlen digits long";
+        }
+        elsif ( length($number) > $maxlen ) {
+            croak "argument: $number must be not more than $maxlen digits long";
         }
 
-    } else {
+    }
+    else {
         if ( length($number) != $length ) {
             croak "argument: $number has to be $length digits long";
         }
@@ -123,7 +127,7 @@ sub _calculate_sum {
     my $sum = 0;
     my @numbers = split( //, $number );
 
-    for ( my $i = 0; $i < scalar(@numbers); $i++ ) {
+    for ( my $i = 0 ; $i < scalar(@numbers) ; $i++ ) {
         my $tmpsum2 = 0;
         my $tmpsum  = $numbers[$i] * $controlcifers[$i];
 
