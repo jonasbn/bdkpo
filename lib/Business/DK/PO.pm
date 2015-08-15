@@ -11,7 +11,7 @@ use base qw(Exporter);
 
 my @controlcifers = qw(2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1);
 
-$VERSION = '0.07';
+$VERSION = '0.08';
 @EXPORT_OK =
   qw(calculate validate validatePO _argument _content _length _calculate_sum);
 
@@ -203,7 +203,7 @@ This documentation describes version 0.07
 The postal orders and postal order codes are used by the danish postal service
 B<PostDanmark>.
 
-=head1 FUNCTIONS
+=head1 SUBROUTINES/METHODS
 
 =head2 validate
 
@@ -276,7 +276,7 @@ that the argument becomes a valid postal order code.
 The calculated and valid code is then returned, left-padded with zeroes to make
 it 16 digits long (SEE: validate).
 
-=head1 PRIVATE FUNCTIONS
+=head1 PRIVATE SUBROUTINES/METHODS
 
 =head2 _argument
 
