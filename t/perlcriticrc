@@ -12,15 +12,10 @@ severity = 1
 lib_sections    = NAME|DESCRIPTION|SYNOPSIS|AUTHOR|COPYRIGHT
 script_sections = NAME|DESCRIPTION|SYNOPSIS|AUTHOR|COPYRIGHT
 
-[Miscellanea::RequireRcsKeywords]
-keywords = Id
-
 [CodeLayout::ProhibitHardTabs]
 allow_leading_tabs = 0
 
 [-ValuesAndExpressions::ProhibitConstantPragma]
-
-[-Bangs::ProhibitFlagComments] 
 
 [-NamingConventions::Capitalization]
 
@@ -31,7 +26,6 @@ exclude_functions = print
 
 [-RegularExpressions::RequireExtendedFormatting]
 
-[-Bangs::ProhibitNumberedNames]
 
 [-RegularExpressions::RequireDotMatchAnything]
 
