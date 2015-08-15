@@ -4,6 +4,11 @@ Project Change Log:
 
 http://logiclab.jira.com/browse/BDKPO#selectedTab=com.atlassian.jira.plugin.system.project%3Achangelog-panel
 
+0.08 2015-08-15 maintenance release, update not required
+
+- Migrated from Module::Build based release to Dist::Zilla based
+
+
 0.07 2014-08-23 maintenance release, update not required
 
 - Added Perl version requirement 5.6 as pointed out by
