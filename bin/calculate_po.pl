@@ -25,7 +25,8 @@ my $rv = calculate( $ARGV[0] );
 if ($rv) {
     print "$rv\n";
     $rv = 0;
-} else {
+}
+else {
     $rv = 1;
 }
 

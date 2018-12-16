@@ -24,7 +24,8 @@ my $rv = validate( $ARGV[0] );
 
 if ($rv) {
     $rv = 0;
-} else {
+}
+else {
     $rv = 1;
 }
 
