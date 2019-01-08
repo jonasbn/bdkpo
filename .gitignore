@@ -24,3 +24,5 @@ README
 *.sublime-project
 *.sublime-workspace
 *.bak
+t/perlcriticrc
+*.tdy

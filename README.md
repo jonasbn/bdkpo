@@ -92,7 +92,7 @@ The number provided must be between 1 and 15 digits long, meaning a number
 between 1 and 999 trillions.
 
 The function returns a postal order code consisting of the number given as
-argument appended with a control cifer to make the code valid (See: b<validate>
+argument appended with a control cifer to make the code valid (See: b&lt;validate>
 
 The calculation function goes through the following steps.
 

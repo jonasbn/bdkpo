@@ -4,7 +4,15 @@ severity = 1
 
 #------------------------------------------------------------------------------
 
-[CodeLayout::RequireTidyCode]
+# Must run code through perltidy.
+[-CodeLayout::RequireTidyCode]
+# set_themes                         = core cosmetic pbp
+# add_themes                         =
+# severity                           = 1
+# maximum_violations_per_document    = no_limit
+
+# The Perl::Tidy configuration file to use, if any.
+perltidyrc =
 
 [Documentation::RequirePodSections]
 lib_sections    = NAME|DESCRIPTION|SYNOPSIS|AUTHOR|COPYRIGHT
@@ -24,6 +32,7 @@ exclude_functions = print
 
 [-RegularExpressions::RequireExtendedFormatting]
 
+[-RegularExpressions::RequireDefault]
 
 [-RegularExpressions::RequireDotMatchAnything]
 
