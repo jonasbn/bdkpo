@@ -15,7 +15,7 @@ on 'test', sub {
     requires 'Test::Kwalitee', '1.28';
     requires 'Test::More';
     requires 'Test::Pod', '1.52';
-    requires 'Test::Pod::Coverage', '1.08';
+    requires 'Test::Pod::Coverage', '1.10';
     requires 'Test::Tester', '1.302195';
 };
 
@@ -31,5 +31,5 @@ on 'develop', sub {
     requires 'Test::Kwalitee', '1.28';
     requires 'Test::Perl::Critic';
     requires 'Test::Pod', '1.52';
-    requires 'Test::Pod::Coverage', '1.08';
+    requires 'Test::Pod::Coverage', '1.10';
 };
