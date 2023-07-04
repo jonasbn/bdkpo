@@ -1,6 +1,6 @@
 requires 'Exporter';
 requires 'Carp';
-requires 'perl', '5.005_03';
+requires 'perl', '5.39.0';
 
 on 'build', sub {
     requires 'Module::Build', '0.4234';
